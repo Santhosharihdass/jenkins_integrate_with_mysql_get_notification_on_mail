@@ -1,0 +1,12 @@
+{
+	"a-dev": ["db_a_dev_1", "db_a_dev_2"],
+	"a-sit": ["db_a_sit_1"],
+	"a-uat": ["db_a_uat_1", "db_a_uat_2", "db_a_uat_3"],
+	"b-dev": ["db_b_dev_1"],
+	"b-sit": ["db_b_sit_1", "db_b_sit_2"],
+	"b-uat": ["db_b_uat_1"],
+	"c-dev": ["db_c_dev_1", "db_c_dev_2"],
+	"c-sit": ["db_c_sit_1"],
+	"c-uat": ["db_c_uat_1", "db_c_uat_2"],
+	"fallback": ["default_db"]
+}
