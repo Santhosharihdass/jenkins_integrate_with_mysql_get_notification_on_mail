@@ -65,7 +65,7 @@ pipeline {
                 Password: ${env.DB_PASSWORD} 
                 """, 
                 subject: "Database Credentials", 
-                to: 'santhosh.h@convergentechnologies.com, abirami.p@convergentechnologies.com'
+                to: 'santhosh.h@convergentechnologies.com'
             }
         }
     }
@@ -85,9 +85,9 @@ def generateCredentials(database) {
     sh """
     mysql -u root -p$MYSQL_ROOT_PASSWORD -e  "SHOW DATABASES;"
     mysql -u root -p$MYSQL_ROOT_PASSWORD -e "CREATE USER '$username'@'%' IDENTIFIED BY '$password';"
-    mysql -u root -p$MYSQL_ROOT_PASSWORD -e "GRANT ALL PRIVILEGES ON ${database}.* TO '$username'@'%'; FLUSH PRIVILEGES;"
+    mysql -u root -p$MYSQL_ROOT_PASSWORD -e "GRANT INSERT, DELETE, UPDATE ON ${database}.* TO '${username}'@'%';" 
+    mysql -u root -p$MYSQL_ROOT_PASSWORD -e "FLUSH PRIVILEGES;"
     """
 
     return [username: username, password: password]
 }
-
